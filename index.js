@@ -170,10 +170,15 @@ client.login(process.env.TOKEN);
 process.on('unhandledRejection', error => {
   console.error('❌ Lỗi không bắt được:', error);
 });
+
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => res.send('Bot is running'));
-app.listen(process.env.PORT || 3000, () => {
-  console.log('✅ Web server is live');
+app.get('/', (req, res) => {
+  res.send('✅ Bot is running');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🌐 Web server đang chạy tại cổng ${PORT}`);
 });
